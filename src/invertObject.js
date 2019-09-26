@@ -20,6 +20,18 @@
  */
 function invertObject(items) {
   // write code here
+  const values = [];
+
+  for (const i in items) {
+    if (values.includes(items[i])) {
+      return null;
+    }
+    values.push(items[i]);
+  };
+
+  return Object.assign({}, ...Object.entries(items).map(
+    ([key, value]) => ({ [value]: key }))
+  );
 }
 
 module.exports = invertObject;
