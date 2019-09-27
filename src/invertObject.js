@@ -27,6 +27,7 @@ function invertObject(items) {
     }
     invertedObject[items[key]] = key;
   }
+
   return invertedObject;
 }
 
