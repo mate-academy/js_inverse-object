@@ -19,28 +19,19 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const itemsKeyArr = [];
-  const itemsValueArr = [];
-  const reverseObj = {};
+  const changedObj = {};
 
   for (const key in items) {
-    itemsKeyArr.push(key);
-    itemsValueArr.push(items[key]);
-  }
+    const newKey = items[key];
 
-  for (let i = 0; i < itemsValueArr.length; i++) {
-    for (let j = i + 1; j < itemsValueArr.length; j++) {
-      if (itemsValueArr[i] === itemsValueArr[j]) {
-        return null;
-      }
+    if (changedObj.hasOwnProperty(newKey)) {
+      return null;
     }
+
+    changedObj[newKey] = key;
   }
 
-  for (let i = 0; i < itemsKeyArr.length; i++) {
-    reverseObj[itemsValueArr[i]] = itemsKeyArr[i];
-  }
-
-  return reverseObj;
+  return changedObj;
 }
 
 module.exports = invertObject;
