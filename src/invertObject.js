@@ -19,7 +19,22 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  const invertedObj = {};
+
+  // Проверяем объект на пустоту
+  // Вариант 2: проверка Object.keys(items).length === 0
+  if (JSON.stringify(items) === '{}') {
+    return items;
+  }
+
+  for (const key in items) {
+    if (invertedObj.hasOwnProperty(items[key])) {
+      return null;
+    }
+    invertedObj[items[key]] = key;
+  }
+
+  return invertedObj;
 }
 
 module.exports = invertObject;
