@@ -20,6 +20,21 @@
  */
 function invertObject(items) {
   // write code here
+  const obj = {};
+
+  for (const key in items) {
+    const keyFromValue = items[key];
+
+    if (isObjectHasKey(obj, keyFromValue)) {
+      return null;
+    }
+    obj[keyFromValue] = key;
+  }
+  return obj;
+}
+
+function isObjectHasKey(obj, key) {
+  return obj.hasOwnProperty(key);
 }
 
 module.exports = invertObject;
