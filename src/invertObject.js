@@ -19,18 +19,12 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const values = [];
-
-  for (const key in items) {
-    if (values.includes(items[key])) {
-      return null;
-    }
-    values.push(items[key]);
-  };
-
   const res = {};
 
   for (const key in items) {
+    if (res.hasOwnProperty(items[key])) {
+      return null;
+    }
     res[items[key]] = key;
   };
 
