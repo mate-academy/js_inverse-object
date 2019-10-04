@@ -21,7 +21,7 @@
 function invertObject(items) {
   const itemsReverse = {};
   for (const key in items) {
-    if (items[key] in itemsReverse) {
+    if (itemsReverse.hasOwnProperty(items[key])) {
       return null;
     }
     itemsReverse[items[key]] = key;
