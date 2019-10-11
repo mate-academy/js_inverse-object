@@ -19,7 +19,41 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  function uniqueValues(arr) {
+    const result = [];
+
+    for (const str of arr) {
+      if (!result.includes(str)) {
+        result.push(str);
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const uniqueChecker = uniqueValues(Object.values(items));
+
+  if (uniqueChecker) {
+    return null;
+  }
+
+  const revObj = {};
+
+  for (const key in items) {
+    revObj[items[key]] = key;
+  }
+
+  return revObj;
 }
+
+// let testObj = {
+//   foo: 'bar',
+//   hello: 'world',
+//   js: 'bar'
+// }
+
+// const checkerObj = Object.values(testObj);
+// console.log(checkerObj);
 
 module.exports = invertObject;
