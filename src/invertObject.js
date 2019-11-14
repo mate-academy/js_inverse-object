@@ -20,12 +20,13 @@
  */
 function invertObject(items) {
   const newObject = {};
+
   for (const key in items) {
     const value = items[key];
+    if (value in newObject) {
+      return null;
+    }
     newObject[value] = key;
-  }
-  if (Object.keys(items).length !== Object.keys(newObject).length) {
-    return null;
   }
   return newObject;
 }
