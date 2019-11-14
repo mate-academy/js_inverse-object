@@ -19,7 +19,16 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  const values = Object.values(items);
+  const obj = {};
+  Object.entries(items)
+    .map(item => item.reverse())
+    .forEach(function(item) {
+      obj[item[0]] = item[1];
+    });
+  return values.length !== [...new Set(values)].length
+    ? null
+    : obj;
 }
 
 module.exports = invertObject;
