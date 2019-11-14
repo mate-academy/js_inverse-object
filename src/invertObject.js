@@ -1,6 +1,21 @@
 'use strict';
 
 /**
+ * Function, that check if object is empty or not
+ *
+ * @param {object} object
+ * @returns {boolean}
+ */
+function isEmpty(object) {
+  for (const prop in object) {
+    if (object.hasOwnProperty(prop)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
  * Implement a function that inverts an object:
  *
  * Every `key: value` pair of the object passed as the only argument to the
@@ -19,7 +34,20 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  let repeat = '';
+  const reverseItems = {};
+  if (isEmpty(items)) {
+    return {};
+  }
+  for (const prop in items) {
+    if (!repeat.includes(items[prop])) {
+      reverseItems[items[prop]] = prop;
+      repeat += items[prop];
+    } else {
+      return null;
+    }
+  }
+  return reverseItems;
 }
 
 module.exports = invertObject;
