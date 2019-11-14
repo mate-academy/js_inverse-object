@@ -19,14 +19,12 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const values = Object.values(items);
+  const entriesObj = Object.entries(items);
   const obj = {};
-  Object.entries(items)
-    .map(item => item.reverse())
-    .forEach(function(item) {
-      obj[item[0]] = item[1];
-    });
-  return values.length !== [...new Set(values)].length
+  entriesObj.forEach(function(item) {
+    obj[item[1]] = item[0];
+  });
+  return Object.keys(items).length !== Object.keys(obj).length
     ? null
     : obj;
 }
