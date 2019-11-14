@@ -22,11 +22,10 @@ function invertObject(items) {
   const invertedObj = {};
 
   for (const key in items) {
+    if (items[key] in invertedObj) {
+      return null;
+    }
     invertedObj[items[key]] = key;
-  }
-
-  if (Object.keys(items).length !== Object.keys(invertedObj).length) {
-    return null;
   }
 
   return invertedObj;
