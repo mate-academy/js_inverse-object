@@ -21,15 +21,10 @@
 function invertObject(items) {
   const invItems = {};
 
-  for (const key1 in items) {
-    for (const key2 in items) {
-      if ((items[key1] === items[key2]) && (key1 !== key2)) {
-        return null;
-      }
-    }
-  }
-
   for (const key in items) {
+    if (items[key] in invItems) {
+      return null;
+    }
     invItems[items[key]] = key;
   }
 
