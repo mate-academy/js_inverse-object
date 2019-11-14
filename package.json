@@ -1,4 +1,7 @@
 {
+  "jest": {
+    "testEnvironment": "node"
+  },
   "name": "inverse-object",
   "version": "1.0.0",
   "description": "Inverting an object",
