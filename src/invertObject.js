@@ -19,13 +19,11 @@
  * @return {Object}
  */
 function invertObject(items) {
-  let repeat = '';
   const reverseItems = {};
 
   for (const prop in items) {
-    if (!repeat.includes(items[prop])) {
+    if (!reverseItems.hasOwnProperty(items[prop])) {
       reverseItems[items[prop]] = prop;
-      repeat += items[prop];
     } else {
       return null;
     }
