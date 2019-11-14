@@ -19,7 +19,16 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  const newObj = {};
+
+  for (const key in items) {
+    newObj[items[key]] = key;
+  }
+  if (Object.keys(newObj).length !== Object.keys(items).length) {
+    return null;
+  }
+
+  return newObj;
 }
 
 module.exports = invertObject;
