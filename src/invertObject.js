@@ -33,18 +33,3 @@ function invertObject(items) {
 }
 
 module.exports = invertObject;
-// items[items[i]] = i;
-// delete items[i];
-
-// const keys = [];
-// const values = [];
-
-// for (const i in items) {
-//   keys.push(i);
-//   values.push(items[i]);
-//   delete items[i];
-// }
-
-// for (let i = 0; i < keys.length; i++) {
-//   items[values[i]] = keys[i];
-// }
