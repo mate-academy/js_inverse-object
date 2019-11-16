@@ -22,12 +22,14 @@ function invertObject(items) {
   const reversedItems = {};
 
   for (const item in items) {
+    if (reversedItems.hasOwnProperty(items[item])) {
+      return null;
+    }
+
     reversedItems[items[item]] = item;
   }
 
-  return (Object.keys(reversedItems).length !== Object.keys(items).length)
-    ? null
-    : reversedItems;
+  return reversedItems;
 }
 
 module.exports = invertObject;
