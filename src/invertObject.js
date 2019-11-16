@@ -20,15 +20,14 @@
  */
 function invertObject(items) {
   const newObj = {};
-
+  let isRepeating = 1;
   for (const key in items) {
-    newObj[items[key]] = key;
-  }
-  if (Object.keys(newObj).length !== Object.keys(items).length) {
-    return null;
+    newObj.hasOwnProperty(items[key])
+      ? isRepeating = 0
+      : newObj[items[key]] = key;
   }
 
-  return newObj;
+  return isRepeating ? newObj : null;
 }
 
 module.exports = invertObject;
