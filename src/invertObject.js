@@ -22,7 +22,7 @@ function invertObject(items) {
   const reversedItems = {};
 
   for (const item in items) {
-    if (reversedItems.hasOwnProperty(items[item])) {
+    if (items[item] in reversedItems) {
       return null;
     }
 
