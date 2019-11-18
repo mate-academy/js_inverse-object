@@ -21,13 +21,12 @@
 function invertObject(items) {
   const result = {};
   for (const key in items) {
+    if (items[key] in result) {
+      return null;
+    }
     result[items[key]] = key;
   }
-  if (Object.keys(items).length === Object.keys(result).length) {
-    return result;
-  } else {
-    return null;
-  }
+  return result;
 }
 
 module.exports = invertObject;
