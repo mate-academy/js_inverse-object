@@ -22,12 +22,10 @@ function invertObject(items) {
   const inverseItems = {};
 
   for (const i in items) {
-    for (const j in items) {
-      if (items[i] === items[j] && i !== j) {
-        return null;
-      }
-      inverseItems[items[i]] = i;
+    if (inverseItems.hasOwnProperty(items[i])) {
+      return null;
     }
+    inverseItems[items[i]] = i;
   }
   return inverseItems;
 }
