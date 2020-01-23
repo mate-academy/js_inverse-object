@@ -21,16 +21,16 @@
 function invertObject(items) {
   const listKeyValues = Object.entries(items);
   const newItems = {};
-  const listOfValues = [];
+  const listOfKeys = [];
 
   for (let i = 0; i < listKeyValues.length; i++) {
-    const value = listKeyValues[i][1];
-    const key = listKeyValues[i][0];
+    const key = listKeyValues[i][1];
+    const value = listKeyValues[i][0];
 
-    if (listOfValues.includes(value)) {
+    if (listOfKeys.includes(key)) {
       return null;
     }
-    listOfValues.push(value);
+    listOfKeys.push(key);
     newItems[key] = value;
   }
 
