@@ -20,16 +20,13 @@
  */
 function invertObject(items) {
   const copyObj = {};
-  const values = Object.values(items);
-
-  for (let i = 0; i < values.length; i++) {
-    if (values.indexOf(values[i]) !== values.lastIndexOf(values[i])) {
-      return null;
-    }
-  }
 
   for (const [key, value] of Object.entries(items)) {
-    copyObj[value] = key;
+    if (!copyObj.hasOwnProperty(items[key])) {
+      copyObj[value] = key;
+    } else {
+      return null;
+    }
   }
 
   return copyObj;
