@@ -18,8 +18,25 @@
  *
  * @return {Object}
  */
+
 function invertObject(items) {
-  // write code here
+  const itemsValues = Object.values(items).sort();
+
+  for (let i = 0; i < itemsValues.length; i++) {
+    if (itemsValues[i] === itemsValues[i + 1]) {
+      return null;
+    }
+  }
+
+  const invertedObj = {};
+
+  for (const key in items) {
+    const itemsKey = items[key];
+
+    invertedObj[itemsKey] = key;
+  }
+
+  return invertedObj;
 }
 
 module.exports = invertObject;
