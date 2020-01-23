@@ -19,24 +19,14 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const valuesList = Object.values(items);
-
-  for (let i = 0; i < valuesList.length - 1; i++) {
-    for (let j = i + 1; j < valuesList.length; j++) {
-      if (valuesList[j] === valuesList[i]) {
-        return null;
-      }
-    }
-  }
-
   const newObject = {};
 
   for (const prop in items) {
-    if (items.hasOwnProperty(prop)) {
-      const value = items[prop];
-
-      newObject[value] = prop;
+    if (newObject.hasOwnProperty(items[prop])) {
+      return null;
     }
+
+    newObject[items[prop]] = prop;
   }
 
   return newObject;
