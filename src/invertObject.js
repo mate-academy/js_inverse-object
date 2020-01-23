@@ -20,15 +20,13 @@
  */
 function invertObject(items) {
   const resultObject = {};
-  const arr = [];
 
   for (const key in items) {
-    if (!arr.includes(items[key])) {
-      arr.push(items[key]);
+    if (!resultObject.hasOwnProperty(items[key])) {
+      resultObject[items[key]] = key;
     } else {
       return null;
     }
-    resultObject[items[key]] = key;
   }
 
   return resultObject;
