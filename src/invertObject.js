@@ -20,16 +20,10 @@
  */
 function invertObject(items) {
   const invertObj = {};
-  const valueArr = [];
 
   for (const key in items) {
-    valueArr.push(items[key]);
-    valueArr.sort();
-
-    for (let i = 0; i < valueArr.length; i += 1) {
-      if (valueArr[i] === valueArr[i + 1]) {
-        return null;
-      }
+    if (invertObj.hasOwnProperty(items[key])) {
+      return null;
     }
 
     invertObj[items[key]] = key;
