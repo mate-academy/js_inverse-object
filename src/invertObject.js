@@ -18,8 +18,20 @@
  *
  * @return {Object}
  */
+
 function invertObject(items) {
-  // write code here
+  let object = {};
+
+  Object.entries(items).forEach(([key, value]) => {
+    if (object.hasOwnProperty(value)) {
+      object = null;
+
+      return object;
+    }
+    object[value] = key;
+  });
+
+  return object;
 }
 
 module.exports = invertObject;
