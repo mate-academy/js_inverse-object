@@ -20,23 +20,17 @@
  */
 function invertObject(items) {
   // write code here
-  const values = Object.values(items);
-  const uniques = [];
-
-  values.forEach(value => {
-    if (!uniques.includes(value)) {
-      uniques.push(value);
-    }
-  });
-
-  if (values.length !== uniques.length) {
-    return null;
-  }
 
   const result = {};
 
   for (const key in items) {
-    result[items[key]] = key;
+    const item = items[key];
+
+    if (result.hasOwnProperty(item)) {
+      return null;
+    }
+
+    result[item] = key;
   }
 
   return result;
