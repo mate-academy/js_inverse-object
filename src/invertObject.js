@@ -25,20 +25,14 @@ function invertObject(items) {
 
   for (let i = 0; i < listKeyValues.length; i++) {
     const value = listKeyValues[i][1];
+    const key = listKeyValues[i][0];
 
     if (listOfValues.includes(value)) {
       return null;
     }
     listOfValues.push(value);
-    listKeyValues[i].reverse();
+    newItems[key] = value;
   }
-
-  listKeyValues.forEach(item => {
-    const newKey = item[0].toString();
-    const newValue = item[1];
-
-    newItems[newKey] = newValue;
-  });
 
   return newItems;
 }
