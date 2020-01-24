@@ -24,12 +24,12 @@ function invertObject(items) {
   let value;
 
   for (let i = 0; i < keys.length; i++) {
+    if (reverseItems.hasOwnProperty(items[keys[i]])) {
+      return null;
+    }
+
     value = items[keys[i]];
     reverseItems[value] = keys[i];
-  }
-
-  if (keys.length !== Object.keys(reverseItems).length) {
-    return null;
   }
 
   return reverseItems;
