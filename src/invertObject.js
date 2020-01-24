@@ -20,15 +20,13 @@
  */
 function invertObject(items) {
   const invertedObj = {};
-  const arrOfValues = [];
 
   for (const key in items) {
-    invertedObj[items[key]] = key;
-    arrOfValues.push(items[key]);
-  }
-
-  if (new Set(arrOfValues).size !== arrOfValues.length) {
-    return null;
+    if (invertedObj.hasOwnProperty(items[key])) {
+      return null;
+    } else {
+      invertedObj[items[key]] = key;
+    }
   }
 
   return invertedObj;
