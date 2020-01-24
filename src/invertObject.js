@@ -22,11 +22,11 @@ function invertObject(items) {
   const resultObject = {};
 
   for (const key in items) {
-    if (!resultObject.hasOwnProperty(items[key])) {
-      resultObject[items[key]] = key;
-    } else {
+    if (resultObject.hasOwnProperty(items[key])) {
       return null;
     }
+
+    resultObject[items[key]] = key;
   }
 
   return resultObject;
