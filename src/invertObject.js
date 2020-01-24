@@ -20,6 +20,18 @@
  */
 function invertObject(items) {
   // write code here
+  const newObj = {};
+  const objectLength = Object.keys(items).length;
+  const setLength = new Set(Object.values(items)).size;
+
+  if (objectLength !== setLength) {
+    return null;
+  }
+  for (const key in items) {
+    newObj[items[key]] = key;
+  }
+
+  return newObj;
 }
 
 module.exports = invertObject;
