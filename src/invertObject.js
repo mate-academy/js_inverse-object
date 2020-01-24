@@ -19,20 +19,14 @@
  * @return {Object}
  */
 function invertObject(items) {
-  if (JSON.stringify(items) === '{}') {
-    return items;
-  }
-
   const newItems = {};
 
   for (const key in items) {
     if (!newItems.hasOwnProperty(items[key])) {
       newItems[items[key]] = key;
+    } else {
+      return null;
     }
-  }
-
-  if (Object.keys(items).length !== Object.keys(newItems).length) {
-    return null;
   }
 
   return newItems;
