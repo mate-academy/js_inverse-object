@@ -22,12 +22,15 @@ function invertObject(items) {
   let volumeProp;
   let count;
 
+  let volProp;
+  let volKey;
+
   for (const key in items) {
     count = 0;
     volumeProp = items[key];
 
-    for (const key1 in items) {
-      if (items[key1] === volumeProp) {
+    for (const keyInner in items) {
+      if (items[keyInner] === volumeProp) {
         count++;
       }
     }
@@ -35,12 +38,6 @@ function invertObject(items) {
     if (count > 1) {
       return null;
     }
-  }
-
-  let volProp;
-  let volKey;
-
-  for (const key in items) {
     volProp = items[key];
     volKey = key;
 
