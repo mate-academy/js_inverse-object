@@ -20,13 +20,7 @@
  */
 function invertObject(items) {
   const reverseItems = {};
-  const keys = [];
-  const keysReverse = [];
-
-  for (const key in items) {
-    keys.push(key);
-  }
-
+  const keys = Object.keys(items);
   let value;
 
   for (let i = 0; i < keys.length; i++) {
@@ -34,11 +28,7 @@ function invertObject(items) {
     reverseItems[value] = keys[i];
   }
 
-  for (const keyReverse in reverseItems) {
-    keysReverse.push(keyReverse);
-  }
-
-  if (keys.length !== keysReverse.length) {
+  if (keys.length !== Object.keys(reverseItems).length) {
     return null;
   }
 
