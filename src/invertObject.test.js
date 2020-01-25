@@ -13,11 +13,20 @@ test('Simple object with one property', () => {
 });
 
 test('Numeric keys and values', () => {
-  expect(invertObject({ '1': 2, '2': 4, '3': 6 }))
-    .toEqual({ '2': '1', '4': '2', '6': '3' });
+  expect(invertObject(
+    {
+      '1': 2, '3': 4, '5': 6,
+    }))
+    .toEqual(
+      {
+        '2': '1', '4': '3', '6': '5',
+      });
 });
 
 test('Repeating values', () => {
-  expect(invertObject({ 'foo': 'bar', 'hello': 'world', 'js': 'bar' }))
+  expect(invertObject(
+    {
+      'foo': 'bar', 'hello': 'world', 'js': 'bar',
+    }))
     .toEqual(null);
 });
