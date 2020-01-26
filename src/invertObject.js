@@ -19,7 +19,21 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  const arrItemsValue = Object.values(items).sort();
+
+  for (let i = 0; i < arrItemsValue.length; i++) {
+    if (arrItemsValue[i] === arrItemsValue[i - 1]
+      || arrItemsValue[i] === arrItemsValue[i + 1]) {
+      return null;
+    }
+    continue;
+  }
+
+  const entriesItems = Object.entries(items);
+
+  entriesItems.forEach(element => element.reverse());
+
+  return Object.fromEntries(entriesItems);
 }
 
 module.exports = invertObject;
