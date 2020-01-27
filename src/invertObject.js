@@ -19,43 +19,17 @@
  * @return {Object}
  */
 function invertObject(items) {
-  let volumeProp;
-  let count;
-
-  let volProp;
-  let volKey;
+  const newObject = {};
 
   for (const key in items) {
-    count = 0;
-    volumeProp = items[key];
-
-    for (const keyInner in items) {
-      if (items[keyInner] === volumeProp) {
-        count++;
-      }
-    }
-
-    if (count > 1) {
+    if (newObject.hasOwnProperty(items[key])) {
       return null;
-    }
-    volProp = items[key];
-    volKey = key;
-
-    if (items.hasOwnProperty(volProp)) {
-      items[volProp + 'a'] = volKey;
     } else {
-      items[volProp] = volKey;
-    }
-    delete items[key];
-  }
-
-  for (let i = 0; i < Object.keys(items).length; i++) {
-    if (Object.keys(items)[i][1] === 'a') {
-      items[parseInt(Object.keys(items)[i])] = items[Object.keys(items)[i]];
-      delete items[[Object.keys(items)[i + 1]]];
+      newObject[items[key]] = key;
     }
   }
 
-  return items;
+  return newObject;
 }
+
 module.exports = invertObject;
