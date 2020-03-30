@@ -21,15 +21,13 @@
 function invertObject(items) {
   const object = items;
   const newObject = {};
-  let newValue, newKey;
 
   for (const key in object) {
-    if (object[key] in newObject) {
+    if (newObject.hasOwnProperty(object[key])) {
       return null;
+    } else {
+      newObject[object[key]] = key;
     }
-    newKey = object[key];
-    newValue = key;
-    newObject[newKey] = newValue;
   }
 
   return newObject;
