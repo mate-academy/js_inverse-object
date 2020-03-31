@@ -19,26 +19,12 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const arrayWithValues = [];
   const readyObj = {};
 
   for (const key in items) {
-    arrayWithValues.push(items[key]);
-  }
-
-  for (let i = 0; i < arrayWithValues.length; i++) {
-    for (let j = i + 1; j < arrayWithValues.length; j++) {
-      if (arrayWithValues[j] === arrayWithValues[i]) {
-        return null;
-      }
+    if (readyObj.hasOwnProperty(items[key])) {
+      return null;
     }
-  }
-
-  if (Object.keys(items).length === 0) {
-    return {};
-  }
-
-  for (const key in items) {
     readyObj[items[key]] = key;
   }
 
