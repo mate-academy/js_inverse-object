@@ -19,22 +19,16 @@
  * @return {Object}
  */
 function invertObject(items) {
-  let counter1 = 0;
-  let counter2 = 0;
-
   const newObj = {};
 
   for (const key in items) {
+    if (newObj.hasOwnProperty(items[key])) {
+      return null;
+    }
     newObj[items[key]] = key;
-    counter1++;
   }
 
-  // eslint-disable-next-line no-empty-pattern
-  for (const {} in newObj) {
-    counter2++;
-  }
-
-  return counter1 === counter2 ? newObj : null;
+  return newObj;
 }
 
 module.exports = invertObject;
