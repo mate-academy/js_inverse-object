@@ -26,9 +26,7 @@ function invertObject(items) {
       return null;
     }
 
-    if (items.hasOwnProperty(key)) {
-      result[items[key]] = key;
-    }
+    result[items[key]] = key;
   }
 
   return result;
