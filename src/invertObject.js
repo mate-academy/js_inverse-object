@@ -24,9 +24,9 @@ function invertObject(items) {
   for (const key in items) {
     if (cloneReturn.hasOwnProperty(items[key])) {
       return null;
-    } else {
-      cloneReturn[items[key]] = key;
     }
+
+    cloneReturn[items[key]] = key;
   }
 
   return cloneReturn;
