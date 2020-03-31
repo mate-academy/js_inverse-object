@@ -20,13 +20,12 @@
  */
 function invertObject(items) {
   const itemsCopy = {};
-  
+
   for (let key in items) {
     if (itemsCopy.hasOwnProperty(items[key]) === true) {
       return null;
     }
     itemsCopy[items[key]] = key;
-    delete items[key];
   }
 
   return itemsCopy;
