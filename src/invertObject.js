@@ -20,6 +20,17 @@
  */
 function invertObject(items) {
   // write code here
+  const object = {};
+
+  for (const key in items) {
+    if (object[items[key]] === undefined) {
+      object[items[key]] = key;
+    } else {
+      return null;
+    }
+  }
+
+  return object;
 }
 
 module.exports = invertObject;
