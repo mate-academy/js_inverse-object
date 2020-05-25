@@ -19,20 +19,20 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const NEW_OBJ = {};
-  const SORTED_VALUES = Object.values(items).sort();
+  const newObj = {};
+  const sortedValues = Object.values(items).sort();
 
-  for (let i = 0; i < SORTED_VALUES.length; i++) {
-    if (SORTED_VALUES[i] === SORTED_VALUES[i + 1]) {
+  for (let i = 0; i < sortedValues.length; i++) {
+    if (sortedValues[i] === sortedValues[i + 1]) {
       return null;
     } else {
       for (const key in items) {
-        NEW_OBJ[items[key]] = key;
+        newObj[items[key]] = key;
       };
     };
   };
 
-  return NEW_OBJ;
+  return newObj;
 }
 
 module.exports = invertObject;
