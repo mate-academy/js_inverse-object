@@ -19,7 +19,21 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
-}
+  const newObject = {};
+  const sortedValuesArray = Object.values(items).sort();
 
+  if (Object.keys(items).length === 0) {
+    return newObject;
+  }
+
+  if (sortedValuesArray[0] === sortedValuesArray[1]) {
+    return null;
+  } else {
+    for (const key in items) {
+      newObject[items[key]] = key;
+    }
+
+    return newObject;
+  }
+}
 module.exports = invertObject;
