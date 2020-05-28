@@ -19,17 +19,17 @@
  * @return {Object}
  */
 function invertObject(items) {
-  const InvertedObject = {};
-  const arrKeys = Object.keys(items);
+  const invertedObject = {};
 
-  for (const key of arrKeys) {
-    if (InvertedObject.hasOwnProperty([items[key]])) {
+  for (const key of Object.keys(items)) {
+    if (invertedObject.hasOwnProperty([items[key]])) {
       return null;
     }
-    InvertedObject[items[key]] = key;
+
+    invertedObject[items[key]] = key;
   };
 
-  return InvertedObject;
+  return invertedObject;
 }
 
 module.exports = invertObject;
