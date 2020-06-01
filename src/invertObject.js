@@ -20,17 +20,22 @@
  */
 function invertObject(items) {
   const invertedObject = {};
-  const itemsValues = Object.values(items);
+  // const itemsValues = Object.values(items);
 
-  if (itemsValues.some((value, index) => itemsValues.indexOf(value) !== index)) {
-    return null;
-  } else {
-    Object.entries(items).forEach(([key, value]) => {
-      invertedObject[value] = key;
-    });
-
-    return invertedObject;
+  // if (itemsValues.some((value, index) => itemsValues.indexOf(value) !== index)) {
+  //   return null;
+  // } else {
+  //   Object.entries(items).forEach(([key, value]) => {
+  //     invertedObject[value] = key;
+  //   });
+  for (const key in items) {
+    if (invertedObject.hasOwnProperty(items[key])) {
+      return null;
+    }
+    invertedObject[items[key]] = key;
   }
+
+  return invertedObject;
 }
 
 module.exports = invertObject;
