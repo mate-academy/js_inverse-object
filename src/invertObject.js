@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Implement a function that inverts an object:
@@ -19,7 +19,15 @@
  * @return {Object}
  */
 function invertObject(items) {
-  // write code here
+  let reversedObj = {};
+
+  for (let key in items) {
+    if (reversedObj.hasOwnProperty(items[key])) {
+      return null;
+    }
+    reversedObj[items[key]] = key;
+  }
+  return reversedObj;
 }
 
 module.exports = invertObject;
