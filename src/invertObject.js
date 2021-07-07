@@ -20,6 +20,22 @@
  */
 function invertObject(items) {
   // write code here
+  const result = {};
+  const props = Object.getOwnPropertyDescriptors(items);
+  const names = Object.getOwnPropertyNames(items);
+
+  for (let i = 0; i < names.length; i++) {
+    const key = names[i];
+    const value = props[key].value;
+
+    if (Object.getOwnPropertyNames(result).includes(value)) {
+      return null;
+    }
+
+    result[value] = key;
+  }
+
+  return result;
 }
 
 module.exports = invertObject;
