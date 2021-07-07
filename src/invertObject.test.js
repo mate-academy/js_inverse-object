@@ -9,7 +9,9 @@ test('Empty object', () => {
 
 test('Simple object with one property', () => {
   expect(invertObject({ 'foo': 'bar' }))
-    .toEqual({ 'bar': 'foo' });
+    .toEqual({
+      'bar': 'foo',
+    });
 });
 
 test('Numeric keys and values', () => {
