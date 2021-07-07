@@ -20,6 +20,15 @@
  */
 function invertObject(items) {
   // write code here
+  const reversProps = {};
+
+  for (const i in items) {
+    if (reversProps.hasOwnProperty(items[i])) {
+      return null;
+    }
+    reversProps[items[i]] = i;
+  }
+  return reversProps;
 }
 
 module.exports = invertObject;
